@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../config/client.js";
+import { cloudUpload } from "../utils/cloudinary.js";
 
 
 /**
@@ -45,9 +46,13 @@ export const getSingleBrand = asyncHandler(async(req, res) => {
  */
 export const createBrand = asyncHandler(async(req, res) => {
 
+
+    //file upload cloudinary
+    const fileData = await cloudUpload(req.file.path)
+
     //post new brand data
     const data = await prisma.brand.create({
-        data : { ...req.body, logo : req.file.path }
+        data : { ...req.body, logo : fileData.secure_url }
     });
 
     //response

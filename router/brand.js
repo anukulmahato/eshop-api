@@ -8,7 +8,7 @@ const router = express.Router();
 //endpoints
 router.get("/", getAllBrand);
 router.get("/:id", getSingleBrand);
-router.post("/", brandMulter, createBrand);
+router.post("/",brandMulter, createBrand);
 router.delete("/:id", deleteSingleBrand);
 router.patch("/:id", updateSingleBrand);
 

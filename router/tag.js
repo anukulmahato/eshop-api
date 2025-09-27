@@ -1,5 +1,5 @@
 import express from "express";
-import { createTag, deleteSingleTag, getAllTag, getSingleTag, updateSingleTag } from "../controllers/TagController";
+import { createTag, deleteSingleTag, getAllTag, getSingleTag, updateSingleTag } from "../controllers/TagController.js";
 
 
 //init router
